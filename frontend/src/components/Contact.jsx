@@ -55,7 +55,12 @@ export default function Contact() {
 
             <div className="flex items-center gap-3 text-slate-700 dark:text-slate-300 transition-colors">
               <span className="text-accent font-bold">☏</span>
-              <span>+91 8208374138</span>
+              <a
+                href="tel:+918208374138"
+                className="transition-colors hover:text-accent underline decoration-slate-300 dark:decoration-slate-700 underline-offset-4"
+              >
+                +91 8208374138
+              </a>
             </div>
 
             <div className="flex items-center gap-3 text-slate-700 dark:text-slate-300 transition-colors">
