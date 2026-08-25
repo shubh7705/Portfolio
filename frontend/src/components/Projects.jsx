@@ -207,7 +207,7 @@ export default function Projects() {
         >
           <div
             onClick={(e) => e.stopPropagation()}
-            className="relative w-full max-w-2xl max-h-[90vh] overflow-y-auto rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-surface p-6 sm:p-8 shadow-2xl transition-all duration-300"
+            className="relative w-full max-w-2xl max-h-[90vh] overflow-y-auto no-scrollbar rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-surface p-6 sm:p-8 shadow-2xl transition-all duration-300"
           >
             {/* Modal Header */}
             <div className="flex items-start justify-between gap-4 border-b border-slate-200 dark:border-slate-800 pb-5">
