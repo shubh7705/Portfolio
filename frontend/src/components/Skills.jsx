@@ -96,7 +96,7 @@ export default function Skills() {
         {skillGroups.map((group) => (
           <div
             key={group.title}
-            className="card flex flex-col justify-between group hover:border-accent/50 transition-all duration-300"
+            className="card flex flex-col justify-between h-full group hover:border-accent/50 transition-all duration-300"
           >
             <div>
               <div className="mb-4 flex items-center justify-between">
