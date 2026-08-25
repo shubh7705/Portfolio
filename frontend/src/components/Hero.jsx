@@ -42,21 +42,21 @@ export default function Hero() {
 
       <div className="flex flex-col gap-6">
         <div className="inline-flex items-center gap-2 rounded-full border border-accent/30 bg-accent/10 px-3.5 py-1 text-xs font-mono text-accent w-fit">
-          <span className="h-2 w-2 rounded-full bg-emerald-400 animate-pulse" />
+          <span className="h-2 w-2 rounded-full bg-emerald-500 animate-pulse" />
           <span>Available for AI/ML &amp; Backend Roles</span>
         </div>
 
         <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-10">
           <div className="flex-1">
-            <h1 className="text-4xl font-extrabold tracking-tight text-slate-100 sm:text-6xl lg:text-7xl">
+            <h1 className="text-4xl font-extrabold tracking-tight text-slate-900 dark:text-slate-100 sm:text-6xl lg:text-7xl transition-colors">
               Shubham Pravin Jadhav
             </h1>
-            <h2 className="mt-3 text-xl font-semibold text-slate-300 sm:text-3xl lg:text-4xl">
+            <h2 className="mt-3 text-xl font-semibold text-slate-700 dark:text-slate-300 sm:text-3xl lg:text-4xl transition-colors">
               AI/ML &amp; Backend Developer
             </h2>
-            <p className="mt-6 max-w-2xl leading-relaxed text-slate-400 sm:text-lg">
+            <p className="mt-6 max-w-2xl leading-relaxed text-slate-600 dark:text-slate-400 sm:text-lg transition-colors">
               B.Tech in Computer Science &amp; Engineering student at{' '}
-              <span className="text-slate-200 font-medium">IIIT Nagpur</span> building high-throughput Multi-LLM gateways,
+              <span className="text-slate-900 dark:text-slate-200 font-medium">IIIT Nagpur</span> building high-throughput Multi-LLM gateways,
               multi-agent RAG architectures, and custom Transformer models from scratch with{' '}
               <span className="font-mono text-accent">PyTorch</span>,{' '}
               <span className="font-mono text-accent">FastAPI</span>, and{' '}
@@ -70,7 +70,7 @@ export default function Hero() {
               </a>
               <a
                 href="#contact"
-                className="inline-flex items-center gap-2 rounded-md border border-slate-700 bg-surface px-5 py-2.5 font-mono text-sm font-medium text-slate-200 transition-all duration-200 hover:border-slate-500 hover:bg-slate-800"
+                className="inline-flex items-center gap-2 rounded-md border border-slate-300 dark:border-slate-700 bg-white dark:bg-surface px-5 py-2.5 font-mono text-sm font-medium text-slate-800 dark:text-slate-200 shadow-sm transition-all duration-200 hover:border-slate-400 dark:hover:border-slate-500 hover:bg-slate-50 dark:hover:bg-slate-800"
               >
                 Contact Me
               </a>
@@ -78,7 +78,7 @@ export default function Hero() {
                 href="https://github.com/shubh7705"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 rounded-md border border-slate-800 bg-base px-4 py-2.5 font-mono text-sm font-medium text-slate-300 transition-all duration-200 hover:border-accent/40 hover:text-accent"
+                className="inline-flex items-center gap-2 rounded-md border border-slate-300 dark:border-slate-800 bg-slate-100 dark:bg-base px-4 py-2.5 font-mono text-sm font-medium text-slate-700 dark:text-slate-300 transition-all duration-200 hover:border-accent/40 hover:text-accent"
               >
                 GitHub Profile
               </a>
@@ -86,8 +86,8 @@ export default function Hero() {
           </div>
 
           {/* Code badge display card */}
-          <div className="w-full lg:w-80 rounded-xl border border-slate-800 bg-surface/90 p-5 font-mono text-xs shadow-2xl backdrop-blur-sm">
-            <div className="flex items-center justify-between border-b border-slate-800 pb-3 text-slate-400">
+          <div className="w-full lg:w-80 rounded-xl border border-slate-200 dark:border-slate-800 bg-white/95 dark:bg-surface/90 p-5 font-mono text-xs shadow-xl dark:shadow-2xl backdrop-blur-sm transition-colors">
+            <div className="flex items-center justify-between border-b border-slate-200 dark:border-slate-800 pb-3 text-slate-500 dark:text-slate-400">
               <div className="flex items-center gap-1.5">
                 <span className="h-2.5 w-2.5 rounded-full bg-red-500/80" />
                 <span className="h-2.5 w-2.5 rounded-full bg-yellow-500/80" />
@@ -95,21 +95,21 @@ export default function Hero() {
               </div>
               <span className="text-[11px] text-slate-500">developer.json</span>
             </div>
-            <div className="mt-4 space-y-1.5 text-slate-300">
-              <p><span className="text-pink-400">const</span> <span className="text-blue-400">engineer</span> = &#123;</p>
-              <p className="pl-4"><span className="text-slate-400">name:</span> <span className="text-emerald-300">'Shubham Jadhav'</span>,</p>
-              <p className="pl-4"><span className="text-slate-400">institute:</span> <span className="text-emerald-300">'IIIT Nagpur'</span>,</p>
-              <p className="pl-4"><span className="text-slate-400">cgpa:</span> <span className="text-amber-300">7.76</span>,</p>
-              <p className="pl-4"><span className="text-slate-400">batch:</span> <span className="text-amber-300">'2023 - 2027'</span>,</p>
-              <p className="pl-4"><span className="text-slate-400">codechef:</span> <span className="text-emerald-300">'3-Star (1614)'</span>,</p>
-              <p className="pl-4"><span className="text-slate-400">dsaSolved:</span> <span className="text-amber-300">'400+'</span>,</p>
+            <div className="mt-4 space-y-1.5 text-slate-700 dark:text-slate-300">
+              <p><span className="text-pink-600 dark:text-pink-400">const</span> <span className="text-blue-600 dark:text-blue-400">engineer</span> = &#123;</p>
+              <p className="pl-4"><span className="text-slate-500 dark:text-slate-400">name:</span> <span className="text-emerald-600 dark:text-emerald-300">'Shubham Jadhav'</span>,</p>
+              <p className="pl-4"><span className="text-slate-500 dark:text-slate-400">institute:</span> <span className="text-emerald-600 dark:text-emerald-300">'IIIT Nagpur'</span>,</p>
+              <p className="pl-4"><span className="text-slate-500 dark:text-slate-400">cgpa:</span> <span className="text-amber-600 dark:text-amber-300">7.76</span>,</p>
+              <p className="pl-4"><span className="text-slate-500 dark:text-slate-400">batch:</span> <span className="text-amber-600 dark:text-amber-300">'2023 - 2027'</span>,</p>
+              <p className="pl-4"><span className="text-slate-500 dark:text-slate-400">codechef:</span> <span className="text-emerald-600 dark:text-emerald-300">'3-Star (1614)'</span>,</p>
+              <p className="pl-4"><span className="text-slate-500 dark:text-slate-400">dsaSolved:</span> <span className="text-amber-600 dark:text-amber-300">'400+'</span>,</p>
               <p>&#125;;</p>
             </div>
           </div>
         </div>
 
         {/* Social Links */}
-        <div className="mt-8 flex items-center gap-6 border-t border-slate-800/80 pt-6">
+        <div className="mt-8 flex items-center gap-6 border-t border-slate-200 dark:border-slate-800/80 pt-6">
           <span className="font-mono text-xs text-slate-500">Connect:</span>
           <ul className="flex items-center gap-5">
             {socials.map((s) => (
@@ -119,7 +119,7 @@ export default function Hero() {
                   target={s.label === 'Email' ? '_self' : '_blank'}
                   rel="noopener noreferrer"
                   aria-label={s.label}
-                  className="block text-slate-400 transition-all duration-200 hover:-translate-y-0.5 hover:text-accent"
+                  className="block text-slate-500 dark:text-slate-400 transition-all duration-200 hover:-translate-y-0.5 hover:text-accent"
                 >
                   {s.icon}
                   <span className="sr-only">{s.label}</span>

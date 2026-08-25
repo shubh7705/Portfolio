@@ -35,30 +35,30 @@ export default function Contact() {
 
       <div className="grid gap-12 lg:grid-cols-12">
         <div className="space-y-6 lg:col-span-5">
-          <p className="leading-relaxed text-slate-300">
+          <p className="leading-relaxed text-slate-700 dark:text-slate-300 transition-colors">
             I am actively seeking software engineering internships, research opportunities, and collaborations in Generative AI, LLM systems, and backend development.
           </p>
-          <p className="leading-relaxed text-slate-400 text-sm">
+          <p className="leading-relaxed text-slate-600 dark:text-slate-400 text-sm transition-colors">
             Whether you have a question about my projects, want to collaborate, or just want to connect, feel free to drop a message!
           </p>
 
           <div className="space-y-3 pt-2 font-mono text-sm">
-            <div className="flex items-center gap-3 text-slate-300">
+            <div className="flex items-center gap-3 text-slate-700 dark:text-slate-300 transition-colors">
               <span className="text-accent font-bold">✉</span>
               <a
                 href="mailto:shubhamjadhav7705@gmail.com"
-                className="transition-colors hover:text-accent underline decoration-slate-700 underline-offset-4"
+                className="transition-colors hover:text-accent underline decoration-slate-300 dark:decoration-slate-700 underline-offset-4"
               >
                 shubhamjadhav7705@gmail.com
               </a>
             </div>
 
-            <div className="flex items-center gap-3 text-slate-300">
+            <div className="flex items-center gap-3 text-slate-700 dark:text-slate-300 transition-colors">
               <span className="text-accent font-bold">☏</span>
               <span>+91 8208374138</span>
             </div>
 
-            <div className="flex items-center gap-3 text-slate-300">
+            <div className="flex items-center gap-3 text-slate-700 dark:text-slate-300 transition-colors">
               <span className="text-accent font-bold">⌂</span>
               <a
                 href="https://github.com/shubh7705"
@@ -70,7 +70,7 @@ export default function Contact() {
               </a>
             </div>
 
-            <div className="flex items-center gap-3 text-slate-300">
+            <div className="flex items-center gap-3 text-slate-700 dark:text-slate-300 transition-colors">
               <span className="text-accent font-bold">in</span>
               <a
                 href="https://linkedin.com/in/shubh7705"
@@ -86,7 +86,7 @@ export default function Contact() {
 
         <form onSubmit={handleSubmit} className="card space-y-4 lg:col-span-7">
           <div>
-            <label htmlFor="name" className="mb-1.5 block font-mono text-xs text-slate-300 font-medium">
+            <label htmlFor="name" className="mb-1.5 block font-mono text-xs text-slate-700 dark:text-slate-300 font-medium transition-colors">
               Your Name
             </label>
             <input
@@ -99,12 +99,12 @@ export default function Contact() {
               value={form.name}
               onChange={handleChange}
               placeholder="e.g. Alex Johnson"
-              className="w-full rounded-md border border-slate-700 bg-base px-3.5 py-2.5 text-sm text-slate-100 placeholder:text-slate-600 focus:border-accent focus:outline-none focus:ring-1 focus:ring-accent"
+              className="w-full rounded-md border border-slate-300 dark:border-slate-700 bg-slate-50 dark:bg-base px-3.5 py-2.5 text-sm text-slate-900 dark:text-slate-100 placeholder:text-slate-400 dark:placeholder:text-slate-600 focus:bg-white dark:focus:bg-base focus:border-accent focus:outline-none focus:ring-1 focus:ring-accent transition-colors"
             />
           </div>
 
           <div>
-            <label htmlFor="email" className="mb-1.5 block font-mono text-xs text-slate-300 font-medium">
+            <label htmlFor="email" className="mb-1.5 block font-mono text-xs text-slate-700 dark:text-slate-300 font-medium transition-colors">
               Your Email Address
             </label>
             <input
@@ -115,12 +115,12 @@ export default function Contact() {
               value={form.email}
               onChange={handleChange}
               placeholder="alex@company.com"
-              className="w-full rounded-md border border-slate-700 bg-base px-3.5 py-2.5 text-sm text-slate-100 placeholder:text-slate-600 focus:border-accent focus:outline-none focus:ring-1 focus:ring-accent"
+              className="w-full rounded-md border border-slate-300 dark:border-slate-700 bg-slate-50 dark:bg-base px-3.5 py-2.5 text-sm text-slate-900 dark:text-slate-100 placeholder:text-slate-400 dark:placeholder:text-slate-600 focus:bg-white dark:focus:bg-base focus:border-accent focus:outline-none focus:ring-1 focus:ring-accent transition-colors"
             />
           </div>
 
           <div>
-            <label htmlFor="message" className="mb-1.5 block font-mono text-xs text-slate-300 font-medium">
+            <label htmlFor="message" className="mb-1.5 block font-mono text-xs text-slate-700 dark:text-slate-300 font-medium transition-colors">
               Message
             </label>
             <textarea
@@ -133,7 +133,7 @@ export default function Contact() {
               value={form.message}
               onChange={handleChange}
               placeholder="Let's build something impactful together..."
-              className="w-full resize-none rounded-md border border-slate-700 bg-base px-3.5 py-2.5 text-sm text-slate-100 placeholder:text-slate-600 focus:border-accent focus:outline-none focus:ring-1 focus:ring-accent"
+              className="w-full resize-none rounded-md border border-slate-300 dark:border-slate-700 bg-slate-50 dark:bg-base px-3.5 py-2.5 text-sm text-slate-900 dark:text-slate-100 placeholder:text-slate-400 dark:placeholder:text-slate-600 focus:bg-white dark:focus:bg-base focus:border-accent focus:outline-none focus:ring-1 focus:ring-accent transition-colors"
             />
           </div>
 
@@ -142,8 +142,8 @@ export default function Contact() {
               role="alert"
               className={`rounded-md p-3 text-xs leading-relaxed ${
                 status === 'success'
-                  ? 'border border-emerald-500/30 bg-emerald-500/10 text-emerald-300'
-                  : 'border border-amber-500/30 bg-amber-500/10 text-amber-200'
+                  ? 'border border-emerald-500/30 bg-emerald-500/10 text-emerald-600 dark:text-emerald-300'
+                  : 'border border-amber-500/30 bg-amber-500/10 text-amber-700 dark:text-amber-200'
               }`}
             >
               {feedback}

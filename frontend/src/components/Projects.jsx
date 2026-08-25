@@ -84,7 +84,7 @@ export default function Projects() {
           <h2 className="section-title !mb-2">
             <span className="text-accent">02.</span> Featured Projects
           </h2>
-          <p className="text-sm text-slate-400 max-w-xl">
+          <p className="text-sm text-slate-600 dark:text-slate-400 max-w-xl transition-colors">
             Selected projects showcasing multi-LLM orchestration, agentic RAG architectures, and custom neural models.
           </p>
         </div>
@@ -108,7 +108,7 @@ export default function Projects() {
             <div>
               <div className="mb-4 flex items-start justify-between gap-4">
                 <div className="flex items-center gap-2">
-                  <span className="font-mono text-xs text-accent/80 font-semibold">0{project.id}</span>
+                  <span className="font-mono text-xs text-accent font-semibold">0{project.id}</span>
                   <span className="h-px w-4 bg-accent/40" />
                 </div>
                 <a
@@ -116,7 +116,7 @@ export default function Projects() {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={`${project.name} GitHub Repository`}
-                  className="shrink-0 rounded-md border border-slate-800 bg-base p-1.5 text-slate-400 transition-colors hover:border-accent/40 hover:text-accent"
+                  className="shrink-0 rounded-md border border-slate-300 dark:border-slate-800 bg-slate-100 dark:bg-base p-1.5 text-slate-600 dark:text-slate-400 transition-colors hover:border-accent/40 hover:text-accent"
                 >
                   <svg viewBox="0 0 24 24" fill="currentColor" className="h-4 w-4" aria-hidden="true">
                     <path
@@ -128,13 +128,13 @@ export default function Projects() {
                 </a>
               </div>
 
-              <h3 className="text-lg font-bold leading-snug text-slate-100 group-hover:text-accent transition-colors">
+              <h3 className="text-lg font-bold leading-snug text-slate-900 dark:text-slate-100 group-hover:text-accent transition-colors">
                 <a href={project.github_url} target="_blank" rel="noopener noreferrer" className="hover:underline">
                   {project.name}
                 </a>
               </h3>
 
-              <p className="mt-3 text-sm leading-relaxed text-slate-400">
+              <p className="mt-3 text-sm leading-relaxed text-slate-600 dark:text-slate-400 transition-colors">
                 {project.description}
               </p>
 
@@ -143,7 +143,7 @@ export default function Projects() {
                 {project.highlights.map((h, idx) => (
                   <li
                     key={idx}
-                    className="flex items-start gap-2 text-xs leading-relaxed text-slate-300"
+                    className="flex items-start gap-2 text-xs leading-relaxed text-slate-700 dark:text-slate-300 transition-colors"
                   >
                     <span className="font-mono text-accent shrink-0 font-bold">▹</span>
                     <span>{h}</span>
@@ -153,12 +153,12 @@ export default function Projects() {
             </div>
 
             {/* Tech Stack */}
-            <div className="mt-6 border-t border-slate-800/80 pt-4">
+            <div className="mt-6 border-t border-slate-200 dark:border-slate-800/80 pt-4 transition-colors">
               <ul className="flex flex-wrap gap-1.5">
                 {project.tech.map((t) => (
                   <li
                     key={t}
-                    className="rounded bg-base/90 px-2 py-0.5 font-mono text-[11px] text-slate-400 border border-slate-800"
+                    className="rounded bg-slate-100 dark:bg-base/90 px-2 py-0.5 font-mono text-[11px] text-slate-700 dark:text-slate-400 border border-slate-200 dark:border-slate-800 transition-colors"
                   >
                     {t}
                   </li>

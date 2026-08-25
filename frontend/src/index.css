@@ -3,11 +3,30 @@
 @tailwind utilities;
 
 @layer base {
-  html {
-    @apply bg-base text-slate-100 antialiased;
+  :root {
+    --bg-base: 248 250 252;
+    --bg-surface: 255 255 255;
+    --accent: 37 99 235;
   }
+
+  html.dark {
+    --bg-base: 11 17 32;
+    --bg-surface: 15 23 42;
+    --accent: 59 130 246;
+  }
+
+  html {
+    background-color: rgb(var(--bg-base));
+    color: #0f172a;
+    @apply antialiased transition-colors duration-300;
+  }
+
+  html.dark {
+    color: #f8fafc;
+  }
+
   ::selection {
-    @apply bg-accent/40 text-white;
+    @apply bg-accent/30 text-current;
   }
 }
 
@@ -16,16 +35,17 @@
     @apply mx-auto max-w-5xl px-6 py-24;
   }
   .section-title {
-    @apply mb-12 flex items-center gap-4 font-mono text-2xl font-semibold text-slate-100 sm:text-3xl;
+    @apply mb-12 flex items-center gap-4 font-mono text-2xl font-semibold text-slate-900 dark:text-slate-100 sm:text-3xl;
   }
   .section-title::after {
     content: '';
-    @apply h-px flex-1 bg-slate-800;
+    @apply h-px flex-1 bg-slate-200 dark:bg-slate-800 transition-colors duration-300;
   }
   .btn-primary {
     @apply inline-flex items-center gap-2 rounded-md border border-accent/60 bg-accent/10 px-5 py-2.5 font-mono text-sm font-medium text-accent transition-all duration-200 hover:-translate-y-0.5 hover:bg-accent/20 hover:shadow-glow;
   }
   .card {
-    @apply rounded-lg border border-slate-800 bg-surface p-6 transition-all duration-200 hover:-translate-y-1 hover:border-accent/50 hover:shadow-glow;
+    @apply rounded-lg border border-slate-200 dark:border-slate-800 bg-surface p-6 shadow-sm dark:shadow-none transition-all duration-300 hover:-translate-y-1 hover:border-accent/50 hover:shadow-glow;
   }
 }
+
