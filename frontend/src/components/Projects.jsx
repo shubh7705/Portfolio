@@ -55,6 +55,14 @@ const DEFAULT_PROJECTS = [
 export default function Projects() {
   const [projects, setProjects] = useState(DEFAULT_PROJECTS)
   const [loading, setLoading] = useState(false)
+  const [expandedIds, setExpandedIds] = useState({})
+
+  const toggleExpand = (id) => {
+    setExpandedIds((prev) => ({
+      ...prev,
+      [id]: !prev[id],
+    }))
+  }
 
   useEffect(() => {
     let active = true
@@ -85,7 +93,7 @@ export default function Projects() {
             <span className="text-accent">02.</span> Featured Projects
           </h2>
           <p className="text-sm text-slate-600 dark:text-slate-400 max-w-xl transition-colors">
-            Selected projects showcasing multi-LLM orchestration, agentic RAG architectures, and custom neural models.
+            Click on any project card to view technical highlights, metrics, and architecture details.
           </p>
         </div>
         <a
@@ -99,74 +107,109 @@ export default function Projects() {
         </a>
       </div>
 
-      <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-        {projects.map((project) => (
-          <article
-            key={project.id}
-            className="card group flex flex-col justify-between hover:border-accent/50 hover:shadow-glow transition-all duration-300 relative overflow-hidden"
-          >
-            <div>
-              <div className="mb-4 flex items-start justify-between gap-4">
-                <div className="flex items-center gap-2">
-                  <span className="font-mono text-xs text-accent font-semibold">0{project.id}</span>
-                  <span className="h-px w-4 bg-accent/40" />
+      <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3 items-start">
+        {projects.map((project) => {
+          const isExpanded = !!expandedIds[project.id]
+
+          return (
+            <article
+              key={project.id}
+              onClick={() => toggleExpand(project.id)}
+              className={`card group flex flex-col justify-between hover:border-accent/50 hover:shadow-glow transition-all duration-300 relative overflow-hidden cursor-pointer select-none ${
+                isExpanded ? 'border-accent/40 shadow-glow' : ''
+              }`}
+            >
+              <div>
+                <div className="mb-4 flex items-start justify-between gap-4">
+                  <div className="flex items-center gap-2">
+                    <span className="font-mono text-xs text-accent font-semibold">0{project.id}</span>
+                    <span className="h-px w-4 bg-accent/40" />
+                  </div>
+                  <a
+                    href={project.github_url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onClick={(e) => e.stopPropagation()}
+                    aria-label={`${project.name} GitHub Repository`}
+                    className="shrink-0 rounded-md border border-slate-300 dark:border-slate-800 bg-slate-100 dark:bg-base p-1.5 text-slate-600 dark:text-slate-400 transition-colors hover:border-accent/40 hover:text-accent"
+                  >
+                    <svg viewBox="0 0 24 24" fill="currentColor" className="h-4 w-4" aria-hidden="true">
+                      <path
+                        fillRule="evenodd"
+                        clipRule="evenodd"
+                        d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0 1 12 6.844a9.59 9.59 0 0 1 2.504.337c1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.02 10.02 0 0 0 22 12.017C22 6.484 17.522 2 12 2Z"
+                      />
+                    </svg>
+                  </a>
                 </div>
-                <a
-                  href={project.github_url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label={`${project.name} GitHub Repository`}
-                  className="shrink-0 rounded-md border border-slate-300 dark:border-slate-800 bg-slate-100 dark:bg-base p-1.5 text-slate-600 dark:text-slate-400 transition-colors hover:border-accent/40 hover:text-accent"
-                >
-                  <svg viewBox="0 0 24 24" fill="currentColor" className="h-4 w-4" aria-hidden="true">
-                    <path
-                      fillRule="evenodd"
-                      clipRule="evenodd"
-                      d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0 1 12 6.844a9.59 9.59 0 0 1 2.504.337c1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.02 10.02 0 0 0 22 12.017C22 6.484 17.522 2 12 2Z"
-                    />
-                  </svg>
-                </a>
+
+                <h3 className="text-lg font-bold leading-snug text-slate-900 dark:text-slate-100 group-hover:text-accent transition-colors">
+                  {project.name}
+                </h3>
+
+                <p className="mt-3 text-sm leading-relaxed text-slate-600 dark:text-slate-400 transition-colors">
+                  {project.description}
+                </p>
+
+                {/* Expandable Highlights */}
+                {isExpanded && (
+                  <div className="mt-4 pt-3 border-t border-slate-200/80 dark:border-slate-800/80 animate-fadeIn">
+                    <p className="font-mono text-xs font-semibold text-accent mb-2">
+                      Key Highlights &amp; Impact:
+                    </p>
+                    <ul className="space-y-2">
+                      {project.highlights.map((h, idx) => (
+                        <li
+                          key={idx}
+                          className="flex items-start gap-2 text-xs leading-relaxed text-slate-700 dark:text-slate-300 transition-colors"
+                        >
+                          <span className="font-mono text-accent shrink-0 font-bold">▹</span>
+                          <span>{h}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
               </div>
 
-              <h3 className="text-lg font-bold leading-snug text-slate-900 dark:text-slate-100 group-hover:text-accent transition-colors">
-                <a href={project.github_url} target="_blank" rel="noopener noreferrer" className="hover:underline">
-                  {project.name}
-                </a>
-              </h3>
+              <div>
+                {/* Tech Stack */}
+                <div className="mt-5 border-t border-slate-200 dark:border-slate-800/80 pt-4 transition-colors">
+                  <ul className="flex flex-wrap gap-1.5">
+                    {project.tech.map((t) => (
+                      <li
+                        key={t}
+                        className="rounded bg-slate-100 dark:bg-base/90 px-2 py-0.5 font-mono text-[11px] text-slate-700 dark:text-slate-400 border border-slate-200 dark:border-slate-800 transition-colors"
+                      >
+                        {t}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
 
-              <p className="mt-3 text-sm leading-relaxed text-slate-600 dark:text-slate-400 transition-colors">
-                {project.description}
-              </p>
-
-              {/* Highlights */}
-              <ul className="mt-4 space-y-2">
-                {project.highlights.map((h, idx) => (
-                  <li
-                    key={idx}
-                    className="flex items-start gap-2 text-xs leading-relaxed text-slate-700 dark:text-slate-300 transition-colors"
+                {/* Click to expand prompt button */}
+                <div className="mt-4 flex items-center justify-between font-mono text-xs text-slate-500 dark:text-slate-400 group-hover:text-accent transition-colors pt-2 border-t border-dashed border-slate-200 dark:border-slate-800/60">
+                  <span className="text-[11px]">
+                    {isExpanded ? 'Hide Details' : 'Click to View Details'}
+                  </span>
+                  <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    className={`h-3.5 w-3.5 transition-transform duration-300 ${
+                      isExpanded ? 'rotate-180 text-accent' : ''
+                    }`}
                   >
-                    <span className="font-mono text-accent shrink-0 font-bold">▹</span>
-                    <span>{h}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            {/* Tech Stack */}
-            <div className="mt-6 border-t border-slate-200 dark:border-slate-800/80 pt-4 transition-colors">
-              <ul className="flex flex-wrap gap-1.5">
-                {project.tech.map((t) => (
-                  <li
-                    key={t}
-                    className="rounded bg-slate-100 dark:bg-base/90 px-2 py-0.5 font-mono text-[11px] text-slate-700 dark:text-slate-400 border border-slate-200 dark:border-slate-800 transition-colors"
-                  >
-                    {t}
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </article>
-        ))}
+                    <polyline points="6 9 12 15 18 9" />
+                  </svg>
+                </div>
+              </div>
+            </article>
+          )
+        })}
       </div>
     </section>
   )
